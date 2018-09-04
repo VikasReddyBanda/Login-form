@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Login Form</title>
+<style>
+    .center{
+        text-align:center;
+        
+        width: 100%;
+    }
+    .c1{
+        color:black;
+        border-color: blue;
+    }
+    .c2{
+        background-color: green;
+    }
+    .c3{
+        background-color: silver;
+    }
+    .ch{
+      width:1000px;  
+    }
+    .center1{
+        border:1px;
+        border-color: blue;
+    }
+</style>
+</head>
+<body>
+<div class="center">
+    
+<form action="/lsubmit" method="post">
+    <div class="center1">
+<div class="c1">
+    username:<input class="c1" type="text" name="name" id="uname"/>
+</div><br/>
+<div class="c1">
+        password:<input class="c1" type="text" name="password" id="pword"/>
+    </div><br/>
+    <div >
+     <input  class="c2" type="submit" name="sbutton" id="sbutton"/>
+        </div><br/>
+</form>
+<button class="c3" formaction="/createaccount">Create Account</button>
+
+</div>
+</body>
+</html>
