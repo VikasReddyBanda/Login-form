@@ -21,7 +21,13 @@ var con = mysql.createConnection({
   password: "",
   database: "mydb"
 });
-
+app.get('/edit',function(req,res){
+ if(req.session.user){
+      res.redirect("createaccount");
+ }else{
+      res.redirect("/");
+  }
+   });
 
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/login1.html')); 
