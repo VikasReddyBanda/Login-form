@@ -30,7 +30,12 @@
         
 <div class="center">
     
-<form action="/lsubmit" method="post">
+<form action="/login" method="post">
+    <% if (message.length > 0) { %>
+        <div style="color:green ">
+            <%= message %>
+        </div>
+        <% } %>
     <div class="center1">
 <div class="c1">
     username:<input class="c1" type="text" name="name" id="uname"/>
