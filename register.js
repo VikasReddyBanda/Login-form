@@ -32,13 +32,13 @@ var con = mysql.createConnection({
 con.connect();
 global.db = con;
 
-// app.get("/edit", function(req, res) {
-//   if (req.session.user) {
-//     res.sendFile(path.join(__dirname + "/createaccount.html"));
-//   } else {
-//     res.redirect("/");
-//   }
-// });
+app.get("/edit", function(req, res) {
+  if (req.session.user) {
+    res.sendFile(path.join(__dirname + "/createaccount.html"));
+  } else {
+    res.redirect("/");
+  }
+});
 
 app.get("/", function(req, res) {
   var s = "user" in req.session;
@@ -68,7 +68,7 @@ app.get("/", function(req, res) {
     });
   } else {
     var message = " ";
-    // res.redirect("/login2");
+
     res.setHeader(
       "Cache-Control",
       "no-store, no-cache, max-age=0, must-revalidate, private"
@@ -78,26 +78,6 @@ app.get("/", function(req, res) {
     res.render("login1.ejs", { message: message });
   }
 });
-
-// app.get("/login2", (req, res) => {
-//   var s = "user" in req.session;
-//   if (s) {
-//     var results = req.session.result;
-//     var sess = req.session.user;
-//     // res.render("content.ejs", { sess: sess, data: results });
-//     res.redirect("/login");
-//   } else {
-//     var message = " ";
-//     // res.redirect("/login2");
-//     res.setHeader(
-//       "Cache-Control",
-//       "no-store, no-cache, max-age=0, must-revalidate, private"
-//     );
-//     res.setHeader("Pragma", "no-cache");
-//     res.setHeader("Expires", "0");
-//     res.render("login1.ejs", { message: message });
-//   }
-// });
 
 app.get("/login", (req, res) => {
   var s = "user" in req.session;
