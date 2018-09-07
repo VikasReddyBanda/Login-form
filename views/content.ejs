@@ -1,32 +1,43 @@
-
 <% if(sess){ %>
-<html>
-   <head><script type="text/javascript" ></script>
-   </head>
-<body>
+  <html>
 
-<table border="1">
-    <tr>
-    <th>name</th>
-    <th>password</th> 
-    <th>email</th>
-    <th>username</th>
-    <th>Action</th>
-  </tr>
+  <head>
+    <script type="text/javascript"></script>
+  </head>
 
-   <tr>
-     <td><%=data[0].name%></td>
-     <td><%=data[0].password%></td>
-     <td><%=data[0].email%></td>
-     <td><%=data[0].username%></td>
-     <td><a href="/edit">edit</a></td>
-   </tr>
+  <body>
 
-</table>
-<a href="/logout">Log out</a>
-</body>
-</html>
-<% }else %>
-<%  { %>
-  <% res.redirect('/');%>
-  <% } %>
+    <table border="1">
+      <tr>
+        <th>name</th>
+        <th>password</th>
+        <th>email</th>
+        <th>username</th>
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>
+          <%=data[0].name%>
+        </td>
+        <td>
+          <%=data[0].password%>
+        </td>
+        <td>
+          <%=data[0].email%>
+        </td>
+        <td>
+          <%=data[0].username%>
+        </td>
+        <td><a href="/edit">edit</a></td>
+      </tr>
+
+    </table>
+    <a href="/logout">Log out</a>
+  </body>
+
+  </html>
+  <% }else %>
+    <%  { %>
+
+      <% } %>
