@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 
 <head>
@@ -44,3 +45,48 @@
 </body>
 
 </html>
+=======
+<% if(sess){ %>
+  <html>
+
+  <head>
+    <script type="text/javascript"></script>
+  </head>
+
+  <body>
+
+    <table border="1">
+      <tr>
+        <th>name</th>
+        <th>password</th>
+        <th>email</th>
+        <th>username</th>
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>
+          <%=data[0].name%>
+        </td>
+        <td>
+          <%=data[0].password%>
+        </td>
+        <td>
+          <%=data[0].email%>
+        </td>
+        <td>
+          <%=data[0].username%>
+        </td>
+        <td><a href="/edit">edit</a></td>
+      </tr>
+
+    </table>
+    <a href="/logout">Log out</a>
+  </body>
+
+  </html>
+  <% }else %>
+    <%  { %>
+
+      <% } %>
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8

@@ -20,7 +20,11 @@ app.use(
   })
 );
 
+<<<<<<< HEAD
 app.set("view engine", "ejs");
+=======
+app.set("view engine", "html");
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -31,6 +35,7 @@ var con = mysql.createConnection({
 
 con.connect();
 global.db = con;
+<<<<<<< HEAD
 
 app.get("/edit/:id", function (req, res) {
   var id = req.params.id;
@@ -78,6 +83,18 @@ app.post("/updateuser/:id", function (req, res) {
 });
 
 app.get("/", function (req, res) {
+=======
+
+app.get("/edit", function(req, res) {
+  if (req.session.user) {
+    res.sendFile(path.join(__dirname + "/createaccount.html"));
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/", function(req, res) {
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
   var s = "user" in req.session;
   if (s) {
     var results = req.session.result;
@@ -90,7 +107,11 @@ app.get("/", function (req, res) {
       "' && password='" +
       req.session.password +
       "'";
+<<<<<<< HEAD
     db.query(sql, function (err, results) {
+=======
+    db.query(sql, function(err, results) {
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
       if (results.length) {
         var sess = req.session.user;
         res.locals.res = res;
@@ -100,18 +121,27 @@ app.get("/", function (req, res) {
           "Cache-Control",
           "no-store, no-cache, max-age=0, must-revalidate, private"
         );
+<<<<<<< HEAD
         res.render("content.ejs", { data: results });
+=======
+        res.render("content.ejs", { sess: sess, data: results });
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
       }
     });
   } else {
     var message = " ";
+<<<<<<< HEAD
     // res.redirect("/login2");
+=======
+
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
     res.setHeader(
       "Cache-Control",
       "no-store, no-cache, max-age=0, must-revalidate, private"
     );
     res.setHeader("Pragma", "no-cache");
     res.setHeader("Expires", "0");
+<<<<<<< HEAD
     res.render("login1.ejs", { sess: sess, message: message });
   }
 });
@@ -135,6 +165,11 @@ app.get("/", function (req, res) {
 //     res.render("login1.ejs", { message: message });
 //   }
 // });
+=======
+    res.render("login1.ejs", { message: message });
+  }
+});
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
 
 app.get("/login", (req, res) => {
   var s = "user" in req.session;
@@ -145,6 +180,7 @@ app.get("/login", (req, res) => {
       "' && password='" +
       req.session.password +
       "'";
+<<<<<<< HEAD
     db.query(sql, function (err, results) {
       if (results.length) {
 
@@ -182,6 +218,39 @@ app.post("/csubmit", user.createaccount);
  
    res.sendFile(path.join(__dirname + "/createaccount.html"));
  });
+=======
+    db.query(sql, function(err, results) {
+      if (results.length) {
+        var sess = req.session.user;
+        res.locals.res = res;
+        res.setHeader("Pragma", "no-cache");
+        res.setHeader("Expires", "0");
+        res.setHeader(
+          "Cache-Control",
+          "no-store, no-cache, max-age=0, must-revalidate, private"
+        );
+        res.render("content.ejs", { sess: sess, data: results });
+      } else {
+        var message = "failed";
+        res.render("login1.ejs", { message: message });
+      }
+    });
+  } else {
+    var message = "session failed";
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+    res.setHeader(
+      "Cache-Control",
+      "no-store, no-cache, max-age=0, must-revalidate, private"
+    );
+    res.render("login1.ejs", { message: message });
+  }
+});
+
+app.post("/login", user.login);
+app.get("/logout", user.logout);
+app.post("/createaccount", user.createaccount);
+>>>>>>> cd19c926dace61c1b4068d2f1ec43f446af9c9d8
 
 app.listen(5000);
 console.log("Running at Port 5000");
