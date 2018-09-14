@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>
+            Edit User
+        </title>
+        <script type="text/javascript"></script>
+    </head>
+    <body>
+        <h3>Edit User Details</h3>
+       <form  method="post" action="/updateuser/<%=data[0].id%>" >
+        <% if (message.length > 0) { %>
+            <div style="color:green ">
+                <%= message %>
+            </div>
+            <% } %>
+        <table border="1">
+        <tr><td>Name<input type="text" name="eid" value="<%=data[0].id%>" readonly/></td></tr>
+        <tr><td>Name<input type="text" name="ename" value="<%=data[0].name%>"/></td></tr>
+        <tr><td>Email<input type="text" name="eemail" value="<%=data[0].email%>"/></td></tr>
+        <tr><td>Username<input type="text" name="eusername" value="<%=data[0].username%>"/></td></tr>
+        <tr><td>Password<input type="password" name="epassword" value="<%=data[0].password%>"/></td></tr>
+        <tr><td><input type="submit" value="Update"></td></tr>    
+    </table>
+</form>
+    </body>
+</html>
