@@ -47,7 +47,7 @@ exports.login = function(req, res) {
 };
 
 /*----------------------------------Logout-----------------------------------------------*/
-
+/*This function is written so that the user would able to logout successfuly. */
 <<<<<<< HEAD
 exports.logout = function (req, res) {
   req.session.destroy(function (err) {
