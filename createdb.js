@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-/*hiiiiiiiii karthik reddy*/
+/*hiiiiiiiii sam kav sai vik*/
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
